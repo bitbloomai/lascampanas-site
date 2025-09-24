@@ -400,7 +400,7 @@ button {
     padding: 100px 20px 50px 20px;
 }
 
-.contact p, .contact-nav ul{
+.mail, .contact-nav ul{
     font-weight: 600;
     font-size: 15px;
 }
@@ -428,6 +428,11 @@ button {
     gap: 20px;
 }
 
+.socials-ico>img{
+    transition: transform ease .3s;
+    cursor: pointer;
+}
+
 .mail{
     margin-top: 10px;
     display: flex;
@@ -442,8 +447,18 @@ button {
     gap: 20px;
 }
 
+.contact-nav ul>li:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.socials-ico>img:hover{
+    transform: scale(1.10);
+}
+
 .bbai-logo {
     width: 250px;
+    cursor: pointer;
 }
 
 .footer {
@@ -451,3 +466,4 @@ button {
     padding: 10px;
     text-align: center;
 }
+
