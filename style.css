@@ -11,6 +11,7 @@
 html {
     width: 100vw;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -40,6 +41,10 @@ li {
     font-size: 20px;
 }
 
+a {
+    color: #fff;
+    text-decoration: none;
+}
 
 header {
     position: fixed;
@@ -105,21 +110,17 @@ header {
 
 .bg-video {
     position: fixed;
-    /* mantém o vídeo fixo como background */
     top: 50%;
     left: 50%;
     width: 100vw;
     height: 100vh;
-    /* garante cobertura vertical */
     min-width: 100%;
-    /* garante cobertura horizontal */
     min-height: 100%;
     transform: translate(-50%, -50%);
     z-index: -1;
     object-fit: cover;
-    /* mantém proporção e cobre toda a tela */
     pointer-events: none;
-    /* evita interações com o vídeo */
+    user-select: none;
 }
 
 .container {}
@@ -130,7 +131,6 @@ header {
     background-color: #111111;
     text-align: center;
     position: relative;
-
     background-image: linear-gradient(to left, rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0.900) 80%, rgba(0, 0, 0, 0.900) 100%),
         url("images/2.png");
     background-position: center;
@@ -142,7 +142,6 @@ header {
     height: 80%;
     opacity: 0.1;
     position: absolute;
-
     bottom: 0;
     right: 0;
 }
@@ -478,18 +477,19 @@ header {
     align-items: center;
     justify-content: center;
     font-size: 50px;
-    color: white;
+    color: #fff;
     cursor: url("./images/ico.png") 16 16, auto;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
-    transition: transform 0.3s ease, filter 0.3s ease;
+    transition: transform 0.3s ease, filter 0.3s ease, color 0.3s ease;
 
 
 }
 
 .o-element:hover {
+    color: #c9c8c8;
     filter: brightness(1.1);
     transform: scale(1.010);
 
@@ -503,11 +503,13 @@ header {
     justify-content: center;
     font-size: 35px;
     cursor: pointer;
-    transition: font-size ease .3s;
+    transition: font-size 0.3s ease, color 0.3s ease;
+    color: #fff;
 }
 
 .ig-range:hover {
     font-size: 36px;
+    color: #c9c8c8;
 }
 
 .contact {
@@ -550,7 +552,7 @@ header {
     gap: 20px;
 }
 
-.socials-ico>img {
+.socials-ico img {
     transition: transform ease .3s;
     cursor: pointer;
 }
@@ -569,12 +571,17 @@ header {
     gap: 20px;
 }
 
+.contact-nav ul>li>a {
+    color: #fff;
+    text-decoration: none;
+}
+
 .contact-nav ul>li:hover {
     text-decoration: underline;
     cursor: pointer;
 }
 
-.socials-ico>img:hover {
+.socials-ico img:hover {
     transform: scale(1.10);
 }
 
@@ -604,14 +611,16 @@ header {
 
 @media(max-width:800px) {
 
-    header{
+    header {
         justify-content: space-between;
 
     }
-     .nav ul {
+
+    .nav ul {
         position: fixed;
         top: 83.5px;
-        right: -100%; /* escondido fora da tela */
+        right: -100%;
+        /* escondido fora da tela */
         height: 100vh;
         width: 100%;
         background: rgba(0, 0, 0, 0.9);

@@ -31,13 +31,17 @@ navLinks.forEach(link => {
 });
 
 
+const linkBtn = document.querySelector('.lgnd-btn');
+linkBtn.addEventListener('click', (e) => {
+    const isMobile = window.innerWidth <= 800; 
+    const url = linkBtn.parentElement.href;
 
-
-
-
-document.querySelector(".form")?.addEventListener("submit", (e) => {
-  e.preventDefault();
-  alert("Inscrição enviada com sucesso!");
+    if (isMobile) {
+        e.preventDefault(); 
+        setTimeout(() => {
+            window.open(url, '_blank'); 
+        }, 500);
+    }
 });
 
 
