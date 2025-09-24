@@ -32,6 +32,13 @@ h4 {
     font-weight: 500;
 }
 
+p,
+li {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: lighter;
+    font-size: 20px;
+}
+
 
 header {
     position: fixed;
@@ -217,21 +224,55 @@ header {
     margin: 10px 0;
 }
 
-button {
-    background-color: #fb3a01;
-    border: none;
-    width: 300px;
-    color: white;
-    font-weight: bolder;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-size: 37px;
-    cursor: pointer;
+.lgnd-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-     font-family: 'Bebas Neue', sans-serif;
-     font-style: italic;
-     font-weight: 500;
+  width: 300px;
+  padding: 10px 20px;    
+  border: none;
+  border-radius: 10px;
+  background: #fb3a01;
+  color: #fff;
+  font-size: 37px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.4s ease, color 0.4s ease, padding-right 0.4s ease;
 }
+
+/* ico */
+.lgnd-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  width: 45px;
+  height: 45px;
+  transform: translateY(-50%) translateX(120%);
+  opacity: 0;
+  background: url("images/lgnd-ico.png") no-repeat center/contain;
+  pointer-events: none;
+  transition: transform 0.45s cubic-bezier(.2,.9,.2,1), opacity 0.35s ease;
+}
+
+
+.lgnd-btn:hover {
+  background: #000;
+  color: #fb3a01;
+  padding-right: 60px;
+}
+
+.lgnd-btn:hover::after {
+  transform: translateY(-50%) translateX(0);
+  opacity: 1;
+}
+
+
 
 .track-about {
     flex: 1;
@@ -287,19 +328,68 @@ button {
     color: #1b1b1b;
 }
 
+
 .tracks-content {
-    display: flex;
-    gap: 10px;
-    padding: 0 50px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
 }
 
 .track-element {
-    width: 230px;
-    height: 380px;
-    border-radius: 10px;
+  flex: 0 0 calc(100% / 3);
+  max-width: calc(100% / 3);
+  height: 380px;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+  padding: 0 5px; 
+  cursor: pointer;
+}
 
-    object-fit: cover;
-    object-position: center;
+/* controles */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 12px;
+  margin-top: 15px;
+  margin-left: 8px;
+}
+
+.carousel-arrow {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #1b1b1b;
+  opacity: 0.8;
+}
+.carousel-arrow:hover { opacity: 1; }
+.carousel-arrow[disabled] { opacity: 0.3; cursor: default; }
+
+.carousel-dots {
+  display: flex;
+  gap: 6px;
+}
+.carousel-dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #bbb;
+  cursor: pointer;
+}
+.carousel-dots button.active {
+  background: #fb3a01;
 }
 
 .range {
@@ -349,7 +439,7 @@ button {
     position: relative;
     height: 100vh;
     min-height: 800px;
-    /* altura total da section para ter espaço de scroll */
+   
 }
 
 .o-element {
@@ -363,9 +453,11 @@ button {
     justify-content: center;
     font-size: 50px;
     color: white;
-    cursor: pointer;
+    cursor: url("./images/ico.png") 16 16, auto;
     background-size: 100%;
     transition: transform 0.3s ease, filter 0.3s ease;
+
+    
 }
 
 .o-element:hover {
@@ -400,7 +492,8 @@ button {
     padding: 100px 20px 50px 20px;
 }
 
-.mail, .contact-nav ul{
+.mail,
+.contact-nav ul {
     font-weight: 600;
     font-size: 15px;
 }
@@ -428,16 +521,16 @@ button {
     gap: 20px;
 }
 
-.socials-ico>img{
+.socials-ico>img {
     transition: transform ease .3s;
     cursor: pointer;
 }
 
-.mail{
+.mail {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 2px;
 }
 
 
@@ -447,12 +540,12 @@ button {
     gap: 20px;
 }
 
-.contact-nav ul>li:hover{
+.contact-nav ul>li:hover {
     text-decoration: underline;
     cursor: pointer;
 }
 
-.socials-ico>img:hover{
+.socials-ico>img:hover {
     transform: scale(1.10);
 }
 
@@ -466,4 +559,3 @@ button {
     padding: 10px;
     text-align: center;
 }
-
