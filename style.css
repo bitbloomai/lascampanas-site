@@ -101,7 +101,7 @@ header {
     z-index: 1001;
 }
 
-.main {
+/* .main {
     height: 100vh;
     width: 100%;
     overflow: hidden;
@@ -121,6 +121,65 @@ header {
     object-fit: cover;
     pointer-events: none;
     user-select: none;
+} */
+
+
+.main {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.main-content {
+display: none;
+}
+
+.bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    /* impede clique no iframe */
+}
+
+.bg-video iframe {
+    width: 177.78vh;
+    /* 100 * (16/9) → cobre altura toda */
+    height: 100vh;
+    min-width: 100vw;
+    min-height: 56.25vw;
+    /* mantém proporção 16:9 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#audio-btn {
+    position: absolute;
+    bottom: 50px;
+    right: 20px;
+    z-index: 1000;
+    background: #fb3a01;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    z-index: 1;
 }
 
 .container {}
@@ -641,6 +700,17 @@ header {
         right: 30px;
     }
 
+    .main-content {
+        font-size: 40px;
+        line-height: 70px;
+        display: block;
+        text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.082);
+    }
+
+    .main-campana {
+        width: 100px;
+    }
+
 
     .about {
         padding: 150px 50px;
@@ -692,6 +762,12 @@ header {
 
 
 @media(max-width:420px) {
+
+    .main-content {
+        font-size: 40px;
+        line-height: 55px;
+    }
+
     .carousel-viewport {
         --visible-items: 1;
     }

@@ -39,13 +39,33 @@
             </ul>
         </nav>
     </header>
-    <section class="main" id="inicio">
+    <!-- <section class="main" id="inicio">
         <video class="bg-video" autoplay muted loop playsinline>
             <source src="images/main-video.mp4" type="video/mp4">
         </video>
+        </div>
+    </section> -->
 
+    <section class="main" id="inicio">
+        <div class="bg-video">
+            <div id="ytplayer"></div>
+        </div>
+
+
+        <div class="main-content">
+            <img class="main-campana" src="images/main-campana.png" alt="">
+            <h1>
+                <span class="orange-font">LEGENDÁRIOS</span> <br>
+                LAS CAMPANAS
+            </h1>
+        </div>
+
+
+
+        <button id="audio-btn">
+            🔊
+        </button>
     </section>
-
 
     <div class="container">
         <section class="about" id="about">
@@ -94,8 +114,9 @@
                         <img src="https://img.icons8.com/?size=100&id=15BVldRxijS1&format=png&color=fb3a01" alt="Data">
                         <h4 class="modal-value">19 a 22 de Março</h4>
                     </div>
-                    <a href="https://ticketandgo.com.br/legendarios-top-1386-track-las-campanas?id=271ec0ac-bc3e-4664-953e-3eef613bedf6&fbclid=PAQ0xDSwNBFhdleHRuA2FlbQIxMQABp1mDkZXhAqOfJPbYqqmBn9Xv25WNIAv5eQ6Sy5-UAxGXtKhcOssG1F6IFzM1_aem_95oDOVVfLkwc1XO5mCBZ0A"
-                        target="_blank"><button class="lgnd-btn">INSCREVER JÁ!</button></a>
+                    <a
+                        href="https://ticketandgo.com.br/legendarios-top-1386-track-las-campanas?id=271ec0ac-bc3e-4664-953e-3eef613bedf6&fbclid=PAQ0xDSwNBFhdleHRuA2FlbQIxMQABp1mDkZXhAqOfJPbYqqmBn9Xv25WNIAv5eQ6Sy5-UAxGXtKhcOssG1F6IFzM1_aem_95oDOVVfLkwc1XO5mCBZ0A"><button
+                            class="lgnd-btn">INSCREVER JÁ!</button></a>
                     <div class="modal-itn">
                         <img src="https://img.icons8.com/?size=100&id=22185&format=png&color=fb3a01" alt="Cartão">
                         <h4 class="modal-value">12X R$164,97</h4>
@@ -260,7 +281,7 @@
 
 
 
-
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>

@@ -4,11 +4,11 @@ const navList = document.querySelector('.nav ul');
 const navLinks = document.querySelectorAll('.nav ul li a');
 
 function updateHeaderBackground() {
-    if (window.scrollY > 50 || navList.classList.contains('show')) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
+  if (window.scrollY > 50 || navList.classList.contains('show')) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
 }
 
 // Scroll
@@ -16,34 +16,81 @@ window.addEventListener("scroll", updateHeaderBackground);
 
 // Menu hamburguer
 hamburger.addEventListener('click', () => {
-    navList.classList.toggle('show');
-    updateHeaderBackground();
+  navList.classList.toggle('show');
+  updateHeaderBackground();
 });
 
 // Fecha o menu ao clicar em qualquer link
 navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if (navList.classList.contains('show')) {
-            navList.classList.remove('show');
-            updateHeaderBackground();
-        }
-    });
+  link.addEventListener('click', () => {
+    if (navList.classList.contains('show')) {
+      navList.classList.remove('show');
+      updateHeaderBackground();
+    }
+  });
 });
 
 
 const linkBtn = document.querySelector('.lgnd-btn');
 linkBtn.addEventListener('click', (e) => {
-    const isMobile = window.innerWidth <= 800; 
-    const url = linkBtn.parentElement.href;
+  const isMobile = window.innerWidth <= 800;
+  const url = linkBtn.parentElement.href;
 
-    if (isMobile) {
-        e.preventDefault(); 
-        setTimeout(() => {
-            window.open(url, '_blank'); 
-        }, 500);
-    }
+  if (isMobile) {
+    e.preventDefault();
+    setTimeout(() => {
+      window.open(url, '_blank');
+    }, 500);
+  }
 });
 
+
+let player;
+const audioBtn = document.getElementById("audio-btn");
+
+// Detecta se é mobile (largura menor que 800px)
+const isMobile = window.innerWidth <= 800;
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('ytplayer', {
+  videoId: 'rXHVr_H2e3o',
+  playerVars: {
+    autoplay: 1,
+    mute: isMobile ? 1 : 0,
+    loop: 1,
+    playlist: 'rXHVr_H2e3o',
+    controls: 0,
+    showinfo: 0,
+    modestbranding: 1,
+    rel: 0,
+    playsinline: 1
+  },
+  events: { 'onReady': onPlayerReady }
+});
+}
+
+function onPlayerReady(event) {
+  event.target.playVideo();
+
+  // Ajusta texto inicial do botão
+  if (isMobile) {
+    audioBtn.textContent = "🔇 Ativar áudio";
+  } else {
+    audioBtn.textContent = "🔊 Desativar áudio";
+  }
+}
+
+audioBtn.addEventListener("click", () => {
+  if (!player) return;
+
+  if (player.isMuted()) {
+    player.unMute();
+    audioBtn.textContent = "🔊 Desativar áudio";
+  } else {
+    player.mute();
+    audioBtn.textContent = "🔇 Ativar áudio";
+  }
+});
 
 gsap.registerPlugin(ScrollTrigger);
 
