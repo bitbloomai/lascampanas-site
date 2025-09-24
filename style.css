@@ -17,6 +17,7 @@ body {
     font-family: "Arial", sans-serif;
     color: #fff;
     background: #1b1b1b;
+    /* overflow-x: hidden; */
 }
 
 h1,
@@ -45,7 +46,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 30px;
+    padding: 20px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -53,6 +54,10 @@ header {
     transition: background 0.4s;
     z-index: 1000;
     background: transparent;
+}
+
+.logo-header {
+    width: 100px;
 }
 
 .header.scrolled {
@@ -79,6 +84,18 @@ header {
     color: #fb3a01;
 }
 
+
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1001;
+}
+
 .main {
     height: 100vh;
     width: 100%;
@@ -91,7 +108,7 @@ header {
     /* mantém o vídeo fixo como background */
     top: 50%;
     left: 50%;
-    width: auto;
+    width: 100vw;
     height: 100vh;
     /* garante cobertura vertical */
     min-width: 100%;
@@ -225,51 +242,51 @@ header {
 }
 
 .lgnd-btn {
-  position: relative;
-  overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-  width: 300px;
-  padding: 10px 20px;    
-  border: none;
-  border-radius: 10px;
-  background: #fb3a01;
-  color: #fff;
-  font-size: 37px;
-  font-family: 'Bebas Neue', sans-serif;
-  font-style: italic;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.4s ease, color 0.4s ease, padding-right 0.4s ease;
+    width: 300px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #fb3a01;
+    color: #fff;
+    font-size: 37px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.4s ease, color 0.4s ease, padding-right 0.4s ease;
 }
 
 /* ico */
 .lgnd-btn::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 16px;
-  width: 45px;
-  height: 45px;
-  transform: translateY(-50%) translateX(120%);
-  opacity: 0;
-  background: url("images/lgnd-ico.png") no-repeat center/contain;
-  pointer-events: none;
-  transition: transform 0.45s cubic-bezier(.2,.9,.2,1), opacity 0.35s ease;
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    width: 45px;
+    height: 45px;
+    transform: translateY(-50%) translateX(120%);
+    opacity: 0;
+    background: url("images/lgnd-ico.png") no-repeat center/contain;
+    pointer-events: none;
+    transition: transform 0.45s cubic-bezier(.2, .9, .2, 1), opacity 0.35s ease;
 }
 
 
 .lgnd-btn:hover {
-  background: #000;
-  color: #fb3a01;
-  padding-right: 60px;
+    background: #000;
+    color: #fb3a01;
+    padding-right: 60px;
 }
 
 .lgnd-btn:hover::after {
-  transform: translateY(-50%) translateX(0);
-  opacity: 1;
+    transform: translateY(-50%) translateX(0);
+    opacity: 1;
 }
 
 
@@ -303,7 +320,6 @@ header {
 
 .tracks {
     background-color: #eeeeee;
-
 }
 
 .traks-container {
@@ -330,66 +346,76 @@ header {
 
 
 .tracks-content {
-  max-width: 1000px;
-  margin: auto;
+    max-width: 1000px;
+    margin: auto;
 }
 
 .carousel-viewport {
-  overflow: hidden;
-  width: 100%;
+    --visible-items: 3;
+    overflow: hidden;
+    width: 100%;
 }
 
 .carousel-track {
-  display: flex;
-  transition: transform 0.5s ease;
+    display: flex;
+    transition: transform 0.5s ease;
 }
 
 .track-element {
-  flex: 0 0 calc(100% / 3);
-  max-width: calc(100% / 3);
-  height: 380px;
-  border-radius: 10px;
-  object-fit: cover;
-  object-position: center;
-  padding: 0 5px; 
-  cursor: pointer;
+    flex: 0 0 calc(100% / 3);
+    max-width: calc(100% / 3);
+    height: 380px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+    padding: 0 5px;
+    cursor: pointer;
 }
 
 /* controles */
 .carousel-controls {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  gap: 12px;
-  margin-top: 15px;
-  margin-left: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 12px;
+    margin-top: 15px;
+    margin-left: 8px;
 }
 
 .carousel-arrow {
-  background: none;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
-  color: #1b1b1b;
-  opacity: 0.8;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #1b1b1b;
+    opacity: 0.8;
 }
-.carousel-arrow:hover { opacity: 1; }
-.carousel-arrow[disabled] { opacity: 0.3; cursor: default; }
+
+.carousel-arrow:hover {
+    opacity: 1;
+}
+
+.carousel-arrow[disabled] {
+    opacity: 0.3;
+    cursor: default;
+}
 
 .carousel-dots {
-  display: flex;
-  gap: 6px;
+    display: flex;
+    gap: 6px;
 }
+
 .carousel-dots button {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: none;
-  background: #bbb;
-  cursor: pointer;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: #bbb;
+    cursor: pointer;
 }
+
 .carousel-dots button.active {
-  background: #fb3a01;
+    background: #fb3a01;
 }
 
 .range {
@@ -439,7 +465,7 @@ header {
     position: relative;
     height: 100vh;
     min-height: 800px;
-   
+
 }
 
 .o-element {
@@ -454,10 +480,13 @@ header {
     font-size: 50px;
     color: white;
     cursor: url("./images/ico.png") 16 16, auto;
-    background-size: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     transition: transform 0.3s ease, filter 0.3s ease;
 
-    
+
 }
 
 .o-element:hover {
@@ -558,4 +587,109 @@ header {
     font-size: 13px;
     padding: 10px;
     text-align: center;
+}
+
+
+@media(max-width: 1000px) {
+
+    .track-element {
+        flex: 0 0 calc(100% / 2);
+        max-width: calc(100% / 2);
+    }
+
+    .carousel-viewport {
+        --visible-items: 2;
+    }
+}
+
+@media(max-width:800px) {
+
+    header{
+        justify-content: space-between;
+
+    }
+     .nav ul {
+        position: fixed;
+        top: 83.5px;
+        right: -100%; /* escondido fora da tela */
+        height: 100vh;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 20px 30px 80px 20px;
+        gap: 20px;
+        transition: right 0.3s ease;
+    }
+
+    .nav ul.show {
+        right: 0;
+    }
+
+    .hamburger {
+        display: block;
+        position: absolute;
+        right: 30px;
+    }
+
+
+    .about {
+        padding: 150px 50px;
+        background-image: linear-gradient(to top, rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0.900) 80%, rgba(0, 0, 0, 0.900) 100%),
+            url("images/2.png");
+    }
+
+    .about-img {
+        height: 50%;
+    }
+
+    .submit {
+        flex-direction: column-reverse;
+        height: 160vh;
+    }
+
+    .sub-modal,
+    .track-about {
+        width: 100%;
+    }
+
+    .traks-container {
+        gap: 70px;
+        flex-direction: column;
+    }
+
+    .traks-container>h1 {
+        padding: 0 60px;
+    }
+
+    .o-element {
+        font-size: 20px;
+    }
+
+    .ig-range {
+        font-size: 27px;
+    }
+
+    .ig-range:hover {
+        font-size: 29px;
+    }
+
+    .contact-nav {
+        grid-template: 1fr 1fr 1fr /1fr;
+        gap: 40px;
+    }
+
+}
+
+
+@media(max-width:420px) {
+    .carousel-viewport {
+        --visible-items: 1;
+    }
+
+    .track-element {
+        flex: 0 0 calc(100% / 1);
+        max-width: calc(100% / 1);
+        height: 560px;
+    }
 }
