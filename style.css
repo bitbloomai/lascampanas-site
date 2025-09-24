@@ -19,14 +19,13 @@ body {
     background: #1b1b1b;
 }
 
-h1, h2, h3{
+h1, h2, h3, h4{
     font-family: 'Bebas Neue', sans-serif;
       font-style: italic;
 }
 
-h3{
+h3, h4{
     font-weight: 500;
-     font-family: 'Bebas Neue', sans-serif;
 }
 
 
@@ -187,12 +186,12 @@ header {
 }
 
 .modal-content h3 {
-    font-size: 18px;
-    margin-bottom: 8px;
+    font-size: 22px;
+    margin-bottom: 4px;
 }
 
-.modal-content p {
-    margin-bottom: 5px;
+.modal-content h4 {
+    margin-bottom: 0px;
 }
 
 .modal-value {
