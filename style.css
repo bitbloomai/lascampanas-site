@@ -238,8 +238,8 @@ display: none;
 .sub-modal {
     flex: 1;
     height: 100%;
-    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.712) 80%, rgba(0, 0, 0, 0.900) 100%),
-        url("images/main.png");
+    background-image:
+        url("images/insc.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -254,7 +254,7 @@ display: none;
 
 .modal-content {
     width: 400px;
-    background-color: #1b1b1bee;
+    background-color: #1b1b1bc4;
     border-radius: 15px;
 
     display: flex;
@@ -422,10 +422,11 @@ display: none;
 .track-element {
     flex: 0 0 calc(100% / 3);
     max-width: calc(100% / 3);
-    height: 380px;
+    height: 100%;
     border-radius: 10px;
-    object-fit: cover;
+    /* object-fit: fill; */
     object-position: center;
+    
     padding: 0 5px;
     cursor: pointer;
 }
@@ -539,7 +540,7 @@ display: none;
     color: #fff;
     cursor: url("./images/ico.png") 16 16, auto;
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
 
     transition: transform 0.3s ease, filter 0.3s ease, color 0.3s ease;
@@ -644,8 +645,12 @@ display: none;
     transform: scale(1.10);
 }
 
+.logo-footer-grid{
+    text-align: center;
+}
+
 .bbai-logo {
-    width: 250px;
+    width: 200px;
     cursor: pointer;
 }
 
@@ -677,7 +682,7 @@ display: none;
 
     .nav ul {
         position: fixed;
-        top: 83.5px;
+        top: 86.4px;
         right: -100%;
         /* escondido fora da tela */
         height: 100vh;

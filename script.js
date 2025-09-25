@@ -39,7 +39,7 @@ linkBtn.addEventListener('click', (e) => {
   if (isMobile) {
     e.preventDefault();
     setTimeout(() => {
-      window.open(url, '_blank');
+      window.open(url);
     }, 500);
   }
 });
